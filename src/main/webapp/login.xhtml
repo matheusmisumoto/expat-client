@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<link rel="stylesheet"
+		href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+	<link href="http://fonts.googleapis.com/css?family=Inter:400,500,700"
+		rel="stylesheet" type="text/css" />
+	<title>Login - EXPAT</title>
+	<h:outputStylesheet library="css" name="styles.css" />
+</h:head>
+<h:body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+			<div class="container-xl">
+				<h:link value="EXPAT" outcome="index" styleClass="navbar-brand" />
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item"><h:link value="Sobre" outcome="sobre"
+								styleClass="nav-link" /></li>
+						<li class="nav-item"><h:link value="Login" outcome="login"
+								styleClass="nav-link" /></li>
+						<li class="nav-item"><h:link value="Cadastro"
+								outcome="cadastro" styleClass="nav-link" /></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	
+    <main class="container-lg p-3 d-flex flex-column justify-content-center" style="max-width: 740px">
+        <h1>Login</h1>
+
+		<h:messages styleClass="alert alert-danger my-3" />
+		<h:outputText value="#{message}" styleClass="alert alert-danger my-3" rendered="#{not empty message}" />
+        <div class="card my-3">
+            <div class="card-body">
+                <h:form>
+                    <div class="form-group">
+                        <h:outputLabel for="email" value="E-mail"/>
+                        <h:inputText id="email" value="#{usuarioBean.usuario.email}" requiredMessage="Digite o seu e-mail"
+						 required="true" styleClass="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel for="senha" value="Senha" />
+                        <h:inputSecret id="senha" value="#{usuarioBean.usuario.password}" requiredMessage="Digite a sua senha"
+						 required="true" styleClass="form-control" />	
+                    </div>
+                    <h:commandButton value="Entrar" action="#{usuarioBean.autenticar}" styleClass="btn btn-primary container-xl mt-3" ajax="false"/>
+                  
+                </h:form>
+            </div>
+            <p class="text-center">Não tem conta? <h:link value="Cadastre-se!"
+								outcome="cadastro" /></p>
+        </div>
+    
+
+    </main>	
+   
+	
+
+</h:body>
+</html>
