@@ -127,11 +127,4 @@ public class CustoBean implements Serializable {
 		}
 	}
 
-	public MediaDTO getMedia() {
-		return media;
-	}
-
-	public void setMedia(MediaDTO media) {
-		this.media = media;
-	}
 }
