@@ -88,7 +88,7 @@ public class CustoBean implements Serializable {
 		if (custo.getId() == null) {
 			rest.create(custo);
 			
-			return "/protected/novo-custo-cidade";
+			return "/protected/novo-custo-cidade?faces-redirect=true";
 		} else {
 			custo = rest.edit(custo);
 		}
