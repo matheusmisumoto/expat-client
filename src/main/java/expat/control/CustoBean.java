@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import expat.dto.MediaDTO;
 import expat.model.Cidade;
 import expat.model.Custo;
 import expat.rest.client.CidadeRESTClient;
@@ -30,6 +31,7 @@ public class CustoBean implements Serializable {
 	}
 
 	private String consulta;
+	private MediaDTO media;
 
 	public CustoBean() {
 		CustoRESTClient rest = new CustoRESTClient();
@@ -87,7 +89,13 @@ public class CustoBean implements Serializable {
 		CustoRESTClient rest = new CustoRESTClient();
 		if (custo.getId() == null) {
 			rest.create(custo);
-			custo = new Custo();
+			
+			CidadeRESTClient restRedirect = new CidadeRESTClient();
+			Cidade resultado = restRedirect.busca(cidade.getEstado(), cidade.getMunicipio());
+			
+			this.setMedia(rest.media(resultado.getId()));
+			
+			return "/resultado";
 		} else {
 			custo = rest.edit(custo);
 		}
@@ -117,12 +125,20 @@ public class CustoBean implements Serializable {
 			custo.setCodCidade(resultado);
 			custo.setAlmoco(0);
 			custo.setAluguel(0);
-			custo.setCestabasica(40);
+			custo.setCestabasica(0);
 			custo.setOnibus(0);
 			
 			return "/protected/novo-custo-registro?faces-redirect=true";
 		} else {
 			return "/protected/cidade";
 		}
+	}
+
+	public MediaDTO getMedia() {
+		return media;
+	}
+
+	public void setMedia(MediaDTO media) {
+		this.media = media;
 	}
 }
