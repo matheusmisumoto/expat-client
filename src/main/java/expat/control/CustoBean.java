@@ -8,7 +8,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import expat.dto.MediaDTO;
 import expat.model.Cidade;
 import expat.model.Custo;
 import expat.rest.client.CidadeRESTClient;
@@ -31,7 +30,6 @@ public class CustoBean implements Serializable {
 	}
 
 	private String consulta;
-	private MediaDTO media;
 
 	public CustoBean() {
 		CustoRESTClient rest = new CustoRESTClient();
@@ -90,9 +88,7 @@ public class CustoBean implements Serializable {
 		if (custo.getId() == null) {
 			rest.create(custo);
 			
-			this.setMedia(rest.media(custo.getCodCidade().getId()));
-			
-			return "/resultado";
+			return "/protected/novo-custo-cidade";
 		} else {
 			custo = rest.edit(custo);
 		}
