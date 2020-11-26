@@ -90,8 +90,7 @@ public class CustoBean implements Serializable {
 		if (custo.getId() == null) {
 			rest.create(custo);
 			
-			CustoRESTClient restCusto = new CustoRESTClient();
-			this.setMedia(restCusto.media(cidade.getId()));
+			this.setMedia(rest.media(custo.getCodCidade().getId()));
 			
 			return "/resultado";
 		} else {
