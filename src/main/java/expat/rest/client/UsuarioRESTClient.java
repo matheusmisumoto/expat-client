@@ -14,7 +14,7 @@ public class UsuarioRESTClient {
 	
 	public boolean authenticate(CredenciaisDTO usuario) {		
 		this.response = ClientBuilder.newClient().
-				target("http://localhost:8081/login").
+				target("https://api-expat.herokuapp.com/api/login").
 	    		queryParam("usuario", usuario).
 	    		request(MediaType.APPLICATION_JSON).
 	    		post(Entity.entity(usuario, MediaType.APPLICATION_JSON));
