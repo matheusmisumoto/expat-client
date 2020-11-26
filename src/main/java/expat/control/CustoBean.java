@@ -63,7 +63,7 @@ public class CustoBean implements Serializable {
 	public String pagPrincipal() {
 		CustoRESTClient rest = new CustoRESTClient();
 		custos = rest.findAll();
-		return "/protected/categoria?faces-redirect=true";
+		return "/protected/custos?faces-redirect=true";
 	}
 
 	public String pagCusto() {
