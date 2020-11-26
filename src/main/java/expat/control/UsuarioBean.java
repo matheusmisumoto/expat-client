@@ -28,7 +28,7 @@ public class UsuarioBean {
 	public String autenticar() {
 		UsuarioRESTClient client = new UsuarioRESTClient();
 		if (client.authenticate(usuario)) {
-			return "/protected/cidades?faces-redirect=true";
+			return "/protected/index?faces-redirect=true";
 		}
 		FacesMessage msg = new FacesMessage("Login/senha incorretos");
 		msg.setSeverity(FacesMessage.SEVERITY_ERROR);

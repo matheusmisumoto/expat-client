@@ -1,6 +1,5 @@
 package expat.model;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,7 +8,7 @@ public class Usuario {
 	private String nome;
 	private String email;
 	private String password;
-	private Set<Integer> perfis = new HashSet<>(Arrays.asList(2));
+	private Set<Integer> perfis = new HashSet<>();
 	
 	public Usuario() {
 	}

@@ -122,7 +122,7 @@ public class CustoBean implements Serializable {
 			
 			return "/protected/novo-custo-registro?faces-redirect=true";
 		} else {
-			return "/cidades";
+			return "/protected/cidade";
 		}
 	}
 }

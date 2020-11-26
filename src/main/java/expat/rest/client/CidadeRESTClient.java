@@ -24,9 +24,9 @@ public class CidadeRESTClient implements RESTClientInterface<Cidade> {
 				.header(HttpHeaders.AUTHORIZATION, this.token)
 				.get();
 
-		List<Cidade> categorias = this.response
+		List<Cidade> cidades = this.response
 				.readEntity(new GenericType<List<Cidade>>() {});
-		return categorias;
+		return cidades;
 	}
 
 	@Override

@@ -18,7 +18,7 @@
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
 			<div class="container-xl">
-				<h:link value="EXPAT" outcome="index" styleClass="navbar-brand" />
+				<h:link value="EXPAT" outcome="/protected/index" styleClass="navbar-brand" />
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -28,13 +28,23 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item"><h:link value="Sobre" outcome="sobre"
-								styleClass="nav-link" /></li>
-						<li class="nav-item"><h:link value="Login" outcome="login"
-								styleClass="nav-link" /></li>
-						<li class="nav-item"><h:link value="Cadastro"
-								outcome="cadastro" styleClass="nav-link" /></li>
+						<li class="nav-item"><h:link value="Sobre"
+								outcome="/protected/sobre" styleClass="nav-link" /></li>
+						<li class="nav-item"><h:link value="Adicionar cidade"
+								outcome="/protected/cidade" styleClass="nav-link" /></li>
+						<li class="nav-item"><h:link value="Listar cidades"
+								outcome="/protected/cidades" styleClass="nav-link" rendered="#{usuario.admin}" /></li>
+						<li class="nav-item"><h:link value="Adicionar custo"
+								outcome="/protected/novo-custo-cidade" styleClass="nav-link" /></li>
+						<li class="nav-item"><h:link value="Listar custos"
+								outcome="/protected/custos" styleClass="nav-link" rendered="#{usuario.admin}" /></li>
 					</ul>
+					<div class="form-inline my-2 my-lg-0">
+						<h:form>
+							<h:commandLink action="#{usuarioBean.logout}"
+								styleClass="navbar-text" value="Logout" />
+						</h:form>
+					</div>
 				</div>
 			</div>
 		</nav>

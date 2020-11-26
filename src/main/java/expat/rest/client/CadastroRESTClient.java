@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -15,6 +16,19 @@ public class CadastroRESTClient implements RESTClientInterface<Usuario> {
 	private Response response;
 	private String token = (String) SessionContext.getInstance().getAttribute("token");
 
+	@Override
+	public List<Usuario> findAll() {
+		this.response = ClientBuilder.newClient()
+                .target(REST_WEBSERVICE_URL + REST_CADASTRO_URL)
+                .request(MediaType.APPLICATION_JSON)
+				.header(HttpHeaders.AUTHORIZATION, this.token)
+				.get();
+
+		List<Usuario> usuarios = this.response
+				.readEntity(new GenericType<List<Usuario>>() {});
+		return usuarios;
+	}	
+	
 	@Override
 	public Usuario find(Long id) {
 		this.response = ClientBuilder.newClient()
@@ -63,13 +77,6 @@ public class CadastroRESTClient implements RESTClientInterface<Usuario> {
 				.header(HttpHeaders.AUTHORIZATION, this.token)
 				.delete();
 		return this.response.getStatus() == STATUS_OK;
-	}
-
-
-	@Override
-	public List<Usuario> findAll() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

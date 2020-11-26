@@ -19,7 +19,7 @@
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
 			<div class="container-xl">
-				<h:link value="EXPAT" outcome="index" styleClass="navbar-brand" />
+				<h:link value="EXPAT" outcome="/protected/index" styleClass="navbar-brand" />
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -29,14 +29,16 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
+						<li class="nav-item"><h:link value="Sobre"
+								outcome="/protected/sobre" styleClass="nav-link" /></li>
 						<li class="nav-item"><h:link value="Adicionar cidade"
 								outcome="/protected/cidade" styleClass="nav-link" /></li>
 						<li class="nav-item"><h:link value="Listar cidades"
-								outcome="/protected/cidades" styleClass="nav-link" /></li>
+								outcome="/protected/cidades" styleClass="nav-link" rendered="#{usuario.admin}" /></li>
 						<li class="nav-item"><h:link value="Adicionar custo"
 								outcome="/protected/novo-custo-cidade" styleClass="nav-link" /></li>
 						<li class="nav-item"><h:link value="Listar custos"
-								outcome="/protected/custos" styleClass="nav-link" /></li>
+								outcome="/protected/custos" styleClass="nav-link" rendered="#{usuario.admin}" /></li>
 					</ul>
 					<div class="form-inline my-2 my-lg-0">
 						<h:form>
@@ -51,37 +53,34 @@
 
 	<main
 		class="container-lg p-3 d-flex flex-column justify-content-center"
-		style="max-width: 740px">
+		style="max-width: 1024px">
 		<h1>Registros de custo de vida</h1>
 		<h:messages class="alert alert-danger my-3" />
 		<h:form id="frm">
-			<p:dataTable value="#{custoBean.custos}" var="c" paginator="true" styleClass="my-3">
-				<p:column headerText="id">
+			<p:dataTable value="#{custoBean.custos}" sortBy="#{c.id}" sortOrder="descending" var="c" paginator="true" styleClass="my-3">
+				<p:column headerText="id" sortBy="#{c.id}">
 					<h:outputText value="#{c.id}" />
 				</p:column>
-				<p:column headerText="Cidade">
-					<h:outputText value="#{c.codCidade.municipio}" />
+				<p:column headerText="Cidade" sortBy="#{c.codCidade.municipio}">
+					<h:outputText value="#{c.codCidade.municipio}, #{c.codCidade.estado}" />
 				</p:column>
-				<p:column headerText="Estado">
-					<h:outputText value="#{c.codCidade.estado}" />
-				</p:column>
-				<p:column headerText="Almoço">
+				<p:column headerText="Almoço" sortBy="#{c.almoco}">
 					<h:outputText value="#{c.almoco}" />
 				</p:column>
-				<p:column headerText="Aluguel">
+				<p:column headerText="Aluguel" sortBy="#{c.aluguel}">
 					<h:outputText value="#{c.aluguel}" />
 				</p:column>
-				<p:column headerText="Cesta Básica">
+				<p:column headerText="Cesta Básica" sortBy="#{c.cestabasica}">
 					<h:outputText value="#{c.cestabasica}" />
 				</p:column>
-				<p:column headerText="Ônibus">
+				<p:column headerText="Ônibus" sortBy="#{c.onibus}">
 					<h:outputText value="#{c.onibus}" />
 				</p:column>
-				<p:column headerText="Editar">
+				<p:column rendered="#{usuario.admin}">
 					<p:commandButton value="Editar" action="#{custoBean.pagCusto(c)}"
-						ajax="false" />
+						ajax="false"  rendered="#{usuario.admin}" />
 				</p:column>
-				<p:column headerText="Excluir" rendered="#{usuario.admin}">
+				<p:column rendered="#{usuario.admin}">
 					<p:commandButton value="Excluir"
 						onclick="return confirm('Confirma a exclusão');"
 						action="#{custoBean.excluir(c)}" update="frm" />
