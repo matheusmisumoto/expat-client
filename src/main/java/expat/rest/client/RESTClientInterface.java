@@ -9,7 +9,7 @@ public interface RESTClientInterface<T> {
 	public static final int STATUS_NOT_ACCEPTABLE = Response.Status.NOT_ACCEPTABLE.getStatusCode();
 	
     public static final String REST_WEBSERVICE_URL = 
-    	       "http://localhost:8081/api/";
+    	       "http://api-expat.herokuapp.com/api/";
     public static final String REST_CADASTRO_URL = "usuario/";
     public static final String REST_CIDADE_URL = "cidade/";
     public static final String REST_CUSTO_URL = "custo/";
