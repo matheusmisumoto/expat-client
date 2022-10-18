@@ -14,7 +14,7 @@ public class UsuarioRESTClient {
 
 	public boolean authenticate(CredenciaisDTO usuario) {
 		this.response = ClientBuilder.newClient().
-				target(System.getProperty("API_URL") + "login").
+				target(System.getenv("API_URL") + "login").
 	    		queryParam("usuario", usuario).
 	    		request(MediaType.APPLICATION_JSON).
 	    		post(Entity.entity(usuario, MediaType.APPLICATION_JSON));
