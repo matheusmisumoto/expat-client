@@ -13,7 +13,7 @@ public class MediaDTO {
 	public MediaDTO() {
 
 	}
-	
+
 	public MediaDTO(Cidade codCidade, double almoco, double aluguel, double cestabasica, double onibus) {
 		super();
 		this.codCidade = codCidade;
@@ -68,7 +68,7 @@ public class MediaDTO {
 		return "MediaDTO [codCidade=" + codCidade + ", almoco=" + almoco + ", aluguel=" + aluguel + ", cestabasica="
 				+ cestabasica + ", onibus=" + onibus + "]";
 	}
-	
-	
+
+
 
 }

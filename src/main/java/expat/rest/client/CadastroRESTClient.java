@@ -27,8 +27,8 @@ public class CadastroRESTClient implements RESTClientInterface<Usuario> {
 		List<Usuario> usuarios = this.response
 				.readEntity(new GenericType<List<Usuario>>() {});
 		return usuarios;
-	}	
-	
+	}
+
 	@Override
 	public Usuario find(Long id) {
 		this.response = ClientBuilder.newClient()

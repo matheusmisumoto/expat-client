@@ -44,7 +44,7 @@ public class CustoRESTClient implements RESTClientInterface<Custo> {
 		return null;
 	}
 
-	
+
 	public MediaDTO media(Long id) {
 		this.response = ClientBuilder.newClient()
 				.target(REST_WEBSERVICE_URL + REST_CUSTO_URL + "cidade/" + id)
@@ -56,7 +56,7 @@ public class CustoRESTClient implements RESTClientInterface<Custo> {
 			return custo;
 		}
 		return null;
-	}	
+	}
 
 	@Override
 	public Custo create(Custo obj) {

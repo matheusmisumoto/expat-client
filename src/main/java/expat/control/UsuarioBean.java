@@ -24,7 +24,7 @@ public class UsuarioBean {
 	public void setUsuario(CredenciaisDTO usuario) {
 		this.usuario = usuario;
 	}
-	
+
 	public String autenticar() {
 		UsuarioRESTClient client = new UsuarioRESTClient();
 		if (client.authenticate(usuario)) {
@@ -35,7 +35,7 @@ public class UsuarioBean {
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 		return null;
 	}
-			
+
 	public String logout() {
 		SessionContext.getInstance().encerrarSessao();
 		return "/login?faces-redirect=true";

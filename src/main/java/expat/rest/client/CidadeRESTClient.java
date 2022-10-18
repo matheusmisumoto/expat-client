@@ -56,7 +56,7 @@ public class CidadeRESTClient implements RESTClientInterface<Cidade> {
 		return null;
 	}
 
-	
+
 	@Override
 	public Cidade create(Cidade obj) {
 		this.response = ClientBuilder.newClient()

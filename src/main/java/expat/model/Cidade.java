@@ -4,7 +4,7 @@ public class Cidade {
 	private Long id;
 	private String municipio;
 	private String estado;
-	
+
 	public Cidade() {
 	}
 
@@ -44,9 +44,7 @@ public class Cidade {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
+		if ((obj == null) || (getClass() != obj.getClass()))
 			return false;
 		Cidade other = (Cidade) obj;
 		if (id == null) {
@@ -61,5 +59,5 @@ public class Cidade {
 	public String toString() {
 		return "Cidade [id=" + id + ", municipio=" + municipio + ", estado=" + estado + "]";
 	}
-	
+
 }

@@ -20,7 +20,7 @@ public class CidadeBean implements Serializable {
 	private List<Cidade> cidades;
 	private String consulta;
 	private Custo custo;
-	
+
 	public Custo getCusto() {
 		return custo;
 	}
@@ -84,11 +84,11 @@ public class CidadeBean implements Serializable {
 		}
 		return pagPrincipal();
 	}
-	
+
 	public String gravarComCusto() {
 		CidadeRESTClient rest = new CidadeRESTClient();
 		rest.create(cidade);
-		
+
 		this.custo = new Custo();
 		custo.setCodCidade(cidade);
 		return "/protected/custo?faces-redirect=true";
@@ -97,15 +97,15 @@ public class CidadeBean implements Serializable {
 	public String excluir(Cidade c) {
 		CidadeRESTClient rest = new CidadeRESTClient();
 		if (!rest.delete(c.getId())) {
-			
+
 			FacesMessage msg = new FacesMessage("Não foi possível excluir a cidade " + c.getMunicipio());
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			FacesContext.getCurrentInstance().addMessage(null, msg);
-			
+
 		} else {
 			cidades.remove(c);
 		}
 		return null;
 	}
-	
+
 }

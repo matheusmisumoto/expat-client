@@ -10,7 +10,7 @@ public class CredenciaisDTO implements Serializable {
 	private Boolean admin;
 
 	public CredenciaisDTO() {
-	}	
+	}
 
 	public CredenciaisDTO(String email, String password) {
 		super();

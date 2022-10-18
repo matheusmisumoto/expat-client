@@ -20,7 +20,7 @@ public class CustoBean implements Serializable {
 	private Custo custo = new Custo();
 	private List<Custo> custos;
 	private Cidade cidade = new Cidade();
-	
+
 	public Cidade getCidade() {
 		return cidade;
 	}
@@ -87,7 +87,7 @@ public class CustoBean implements Serializable {
 		CustoRESTClient rest = new CustoRESTClient();
 		if (custo.getId() == null) {
 			rest.create(custo);
-			
+
 			return "/protected/novo-custo-cidade?faces-redirect=true";
 		} else {
 			custo = rest.edit(custo);
@@ -107,8 +107,8 @@ public class CustoBean implements Serializable {
 		}
 		return null;
 	}
-	
-	
+
+
 	public String buscaCidade() {
 		CidadeRESTClient rest = new CidadeRESTClient();
 		Cidade resultado = rest.busca(cidade.getEstado(), cidade.getMunicipio());
@@ -120,7 +120,7 @@ public class CustoBean implements Serializable {
 			custo.setAluguel(0);
 			custo.setCestabasica(0);
 			custo.setOnibus(0);
-			
+
 			return "/protected/novo-custo-registro?faces-redirect=true";
 		} else {
 			return "/protected/cidade";

@@ -11,10 +11,10 @@ import expat.util.SessionContext;
 
 public class UsuarioRESTClient {
 	private Response response;
-	
-	public boolean authenticate(CredenciaisDTO usuario) {		
+
+	public boolean authenticate(CredenciaisDTO usuario) {
 		this.response = ClientBuilder.newClient().
-				target("https://api-expat.herokuapp.com/login").
+				target(System.getProperty("API_URL") + "login").
 	    		queryParam("usuario", usuario).
 	    		request(MediaType.APPLICATION_JSON).
 	    		post(Entity.entity(usuario, MediaType.APPLICATION_JSON));
@@ -25,7 +25,7 @@ public class UsuarioRESTClient {
 			String token = response.getHeaderString("Authentication");
 			SessionContext.getInstance().setAttribute("token", token);
 			return true;
-		}	    
+		}
 		return false;
 	}
 }

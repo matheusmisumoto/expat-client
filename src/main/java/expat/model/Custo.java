@@ -8,7 +8,7 @@ public class Custo {
 	private double aluguel;
 	private double cestabasica;
 	private double onibus;
-	
+
 	public Custo() {
 	}
 
@@ -80,9 +80,7 @@ public class Custo {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
+		if ((obj == null) || (getClass() != obj.getClass()))
 			return false;
 		Custo other = (Custo) obj;
 		if (id == null) {
@@ -98,5 +96,5 @@ public class Custo {
 		return "Custo [id=" + id + ", codCidade=" + codCidade + ", codUsuario=" + codUsuario + ", almoco=" + almoco
 				+ ", aluguel=" + aluguel + ", cestabasica=" + cestabasica + ", onibus=" + onibus + "]";
 	}
-		
+
 }

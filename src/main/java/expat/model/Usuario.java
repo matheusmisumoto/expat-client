@@ -9,11 +9,11 @@ public class Usuario {
 	private String email;
 	private String password;
 	private Set<Integer> perfis = new HashSet<>();
-	
+
 	public Usuario() {
 	}
 
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -74,9 +74,7 @@ public class Usuario {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
+		if ((obj == null) || (getClass() != obj.getClass()))
 			return false;
 		Usuario other = (Usuario) obj;
 		if (id == null) {
@@ -86,5 +84,5 @@ public class Usuario {
 			return false;
 		return true;
 	}
-	
+
 }

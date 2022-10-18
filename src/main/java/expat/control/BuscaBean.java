@@ -16,8 +16,8 @@ public class BuscaBean {
 	private Cidade resultado = new Cidade();
 	private MediaDTO media = new MediaDTO();
 	private Custo custo = new Custo();
-	
-	public BuscaBean() {		
+
+	public BuscaBean() {
 	}
 
 	public Cidade getCidade() {
@@ -50,9 +50,9 @@ public class BuscaBean {
 
 		if(resultado != null){
 			CustoRESTClient restCusto = new CustoRESTClient();
-	
+
 			this.media = restCusto.media(resultado.getId());
-			
+
 			return "/resultado";
 		} else {
 			return "/index";

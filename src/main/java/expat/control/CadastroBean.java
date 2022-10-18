@@ -4,8 +4,10 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+
 import expat.model.Usuario;
 import expat.rest.client.CadastroRESTClient;
 
@@ -16,8 +18,8 @@ public class CadastroBean implements Serializable {
 	private Usuario usuario = new Usuario();
 	private List<Usuario> usuarios;
 	private String consulta;
-	
-	public CadastroBean()  {		
+
+	public CadastroBean()  {
 	}
 
 
@@ -56,7 +58,7 @@ public class CadastroBean implements Serializable {
 		this.usuario.setPerfis(new HashSet<>(Arrays.asList(2)));
 		rest.create(usuario);
 
-		return "/login?faces-redirect=true";		
+		return "/login?faces-redirect=true";
 	}
 
 }
