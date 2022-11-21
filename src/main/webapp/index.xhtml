@@ -45,6 +45,10 @@
 		class="container-lg p-3 d-flex flex-column justify-content-center"
 		style="height: 90vh; max-width: 740px">
 		<h1 class="text-center mb-4">Quanto custa viver em...</h1>
+		
+		<h:messages styleClass="alert alert-danger my-3" />
+		<h:outputText value="#{message}" styleClass="alert alert-danger my-3" rendered="#{not empty message}" />
+		
 		<h:form styleClass="my-2 my-lg-0 text-center">
 			<h:inputText id="email" value="#{buscaBean.cidade.municipio}"
 				requiredMessage="Digite a cidade" required="true"

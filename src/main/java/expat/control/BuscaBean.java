@@ -1,7 +1,9 @@
 package expat.control;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 import expat.dto.MediaDTO;
 import expat.model.Cidade;
@@ -55,7 +57,11 @@ public class BuscaBean {
 
 			return "/resultado";
 		} else {
-			return "/index";
+			FacesMessage msg = new FacesMessage("Cidade não cadastrada!");
+			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+
+			return null;
 		}
 
 	}
