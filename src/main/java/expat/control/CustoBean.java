@@ -99,7 +99,7 @@ public class CustoBean implements Serializable {
 		CustoRESTClient rest = new CustoRESTClient();
 		if (!rest.delete(c.getId())) {
 			FacesContext context = FacesContext.getCurrentInstance();
-			FacesMessage msg = new FacesMessage("Não foi possível excluir o registro");
+			FacesMessage msg = new FacesMessage("NÃ£o foi possÃ­vel excluir o registro");
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			context.addMessage(null, msg);
 		} else {

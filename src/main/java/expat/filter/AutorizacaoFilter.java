@@ -33,7 +33,7 @@ public class AutorizacaoFilter implements Filter {
             chain.doFilter(request, response);
         }
         else {
-            sessao.setAttribute("message", "Faça o login");
+            sessao.setAttribute("message", "Acesso restrito. Entre com seu usuÃ¡rio e senha.");
             String contextPath = ((HttpServletRequest) request).
                                                     getContextPath();
             ((HttpServletResponse) response).

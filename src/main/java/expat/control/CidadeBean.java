@@ -98,7 +98,7 @@ public class CidadeBean implements Serializable {
 		CidadeRESTClient rest = new CidadeRESTClient();
 		if (!rest.delete(c.getId())) {
 
-			FacesMessage msg = new FacesMessage("Não foi possível excluir a cidade " + c.getMunicipio());
+			FacesMessage msg = new FacesMessage("NÃ£o foi possÃ­vel excluir a cidade " + c.getMunicipio());
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			FacesContext.getCurrentInstance().addMessage(null, msg);
 

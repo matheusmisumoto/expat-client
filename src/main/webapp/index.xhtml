@@ -49,11 +49,12 @@
 		<h:messages styleClass="alert alert-danger my-3" />
 		<h:outputText value="#{message}" styleClass="alert alert-danger my-3" rendered="#{not empty message}" />
 		
-		<h:form styleClass="my-2 my-lg-0 text-center">
+		<h:form styleClass="my-2 my-lg-0 text-center" acceptcharset="UTF-8">
 			<h:inputText id="email" value="#{buscaBean.cidade.municipio}"
 				requiredMessage="Digite a cidade" required="true"
 				styleClass="form-control mr-sm-2" />
 			<h:selectOneMenu id="estado" value="#{buscaBean.cidade.estado}"
+				requiredMessage="Selecione o estado" required="true"
 				styleClass="form-control mt-2">
 				<f:selectItem itemValue="" itemLabel="Selecione o estado" />
 				<f:selectItem itemValue="AC" itemLabel="Acre" />
